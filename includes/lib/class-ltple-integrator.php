@@ -38,7 +38,7 @@ class LTPLE_Integrator_Youtube {
 				$goo_api_project 		= array_search('goo_api_project', $parameters['key']);
 				$goo_consumer_key 		= array_search('goo_consumer_key', $parameters['key']);
 				$goo_consumer_secret 	= array_search('goo_consumer_secret', $parameters['key']);
-				$goo_oauth_callback 	= $this->parent->urls->editor;
+				$goo_oauth_callback 	= $this->parent->urls->apps;
 
 				if( !empty($parameters['value'][$goo_api_project]) && !empty($parameters['value'][$goo_consumer_key]) && !empty($parameters['value'][$goo_consumer_secret]) ){
 				
@@ -198,8 +198,12 @@ class LTPLE_Integrator_Youtube {
 					
 					$this->access_token =  $this->client->fetchAccessTokenWithAuthCode($_REQUEST['code']);				
 					
-					//flush session
-					session_destroy();					
+					if(!empty($_SESSION)){
+							
+						//flush session
+							
+						$_SESSION = array();			
+					}					
 					
 					//store access_token in session					
 					$_SESSION['access_token'] = $this->access_token;
@@ -279,10 +283,11 @@ class LTPLE_Integrator_Youtube {
 						$_SESSION['message'] .= '</div>';						
 					}
 				}
-				else{
-					
+				elseif(!empty($_SESSION)){
+						
 					//flush session
-					session_destroy();					
+						
+					$_SESSION = array();			
 				}
 			}
 		}
