@@ -15,7 +15,9 @@ class LTPLE_Integrator_Youtube {
 		$this->parent 		= $parent;
 		$this->parent->apps = $apps;
 
-		if( !file_exists($this->parent->vendor . '/autoload.php') ){
+		$this->vendor = trailingslashit( WP_PLUGIN_DIR ) . 'live-template-editor-app-google/vendor';		
+		
+		if( !file_exists($this->vendor . '/autoload.php') ){
 			
 			$_SESSION['message'] = '<div class="alert alert-danger">';
 				
@@ -23,7 +25,11 @@ class LTPLE_Integrator_Youtube {
 					
 			$_SESSION['message'] .= '</div>';		
 		}
-		else{		
+		else{
+
+			// include google SDK
+			
+			include_once($this->vendor . '/autoload.php');		
 			
 			// get app term
 
@@ -97,6 +103,10 @@ class LTPLE_Integrator_Youtube {
 				}
 			}
 		}
+	}
+	
+	public function init_app(){	
+		
 	}
 
 	public function appImportImg(){
@@ -292,4 +302,4 @@ class LTPLE_Integrator_Youtube {
 			}
 		}
 	}
-} 
+}
