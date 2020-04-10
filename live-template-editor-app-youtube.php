@@ -32,6 +32,8 @@
 	 */
 	function LTPLE_App_Youtube ( $version = '1.0.0' ) {
 		
+		if ( ! class_exists( 'LTPLE_Client' ) ) return;
+	
 		$instance = LTPLE_Client::instance( __FILE__, $version );
 		
 		if ( empty( $instance->App_Youtube ) ) {
