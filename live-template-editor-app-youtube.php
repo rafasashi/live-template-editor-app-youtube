@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Live Template Editor App Youtube
- * Version: 1.0
+ * Version: 1.0.0.2
  * Plugin URI: https://github.com/rafasashi
  * Description: Youtube API integrator for Live Template Editor.
  * Author: Rafasashi
