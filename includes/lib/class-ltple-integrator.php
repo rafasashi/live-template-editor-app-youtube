@@ -59,9 +59,9 @@ class LTPLE_Integrator_Youtube extends LTPLE_Client_Integrator {
 					
 					//Set the scopes required for the API you are going to call
 					
-					$this->client->addScope('https://www.googleapis.com/auth/plus.login');
-					$this->client->addScope('https://www.googleapis.com/auth/youtube');
-					$this->client->addScope('https://www.googleapis.com/auth/youtube.readonly');
+					//$this->client->addScope('https://www.googleapis.com/auth/youtube'); // manage account
+					$this->client->addScope('https://www.googleapis.com/auth/youtube.readonly'); // view account
+					$this->client->addScope('https://www.googleapis.com/auth/youtube.upload'); // manage videos
 					
 					// set Approval Prompt
 					
