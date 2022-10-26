@@ -69,14 +69,7 @@ class LTPLE_Integrator_Youtube extends LTPLE_Client_Integrator {
 					
 					// generates refresh token
 					
-					$this->client->setAccessType('offline');       
-					
-					// init action
-			
-					if( $action = $this->get_current_action() ){
-					
-						$this->init_action($action);
-					}
+					$this->client->setAccessType('offline');
 				}
 				else{
 					
